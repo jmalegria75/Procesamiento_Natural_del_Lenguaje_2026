@@ -17,16 +17,16 @@ mencionan aplicaciones en procesamiento de voz.
 
 
 `Introducción.` **Introducción a NLP**
-### Semana 1
+##### Semana 1
 
-### Viernes · 4 hrs — Fundamentos
+##### Viernes · 4 hrs — Fundamentos
     1. ¿Qué es el NLP y sus aplicaciones?
     2. Conceptos clave: tokens, corpus, vocabulario
     3. Embeddings: intuición y uso
     4. Pipeline típico de un proyecto NLP
     5. Configuración del entorno (conda / venv)
 
-### Sábado · 4 hrs — Herramientas base
+##### Sábado · 4 hrs — Herramientas base
     1. Introducción a NLTK y spaCy
     2. Manejo de texto con `re` y `string`
     3. Exploración de un corpus real
@@ -35,31 +35,31 @@ mencionan aplicaciones en procesamiento de voz.
 
 `Módulo 1.` **Preprocesamiento y Representación de Texto**
 
-### Semana 2 — Parte A: Procesamiento de texto
+##### Semana 2 — Parte A: Procesamiento de texto
 
-#### Viernes · 4 hrs — Transformaciones de texto
+##### Viernes · 4 hrs — Transformaciones de texto
     1. Tokenización a nivel palabra y oración
     2. Stemming (PorterStemmer, SnowballStemmer)
     3. Lematización con spaCy y NLTK
     4.  Diferencias entre stemming y lematización
     5. Librerías: `NLTK`, `spaCy`
 
-#### Sábado · 4 hrs — Limpieza y normalización
+###### Sábado · 4 hrs — Limpieza y normalización
     1. Eliminación de stopwords
     2. Expresiones regulares para texto (`re`)
     3. Normalización: minúsculas, puntuación, acentos
     4. Construcción de un pipeline de limpieza
     5. Ejercicio: preprocesar corpus de noticias
 
-### Semana 3 — Parte B: Representación vectorial
+##### Semana 3 — Parte B: Representación vectorial
 
-#### Viernes · 4 hrs — Representaciones clásicas
+###### Viernes · 4 hrs — Representaciones clásicas
     1. Bag of Words (BoW): construcción y limitaciones
     2. TF-IDF: cálculo e interpretación
     3. Visualización de matrices de términos
     4. Librerías: `scikit-learn`, `pandas`, `numpy`
 
-#### Sábado · 4 hrs — Word Embeddings
+###### Sábado · 4 hrs — Word Embeddings
     1. Word2Vec: CBOW vs Skip-gram
     2. GloVe y FastText: diferencias prácticas
     3. Sentence embeddings (`sentence-transformers`)
@@ -69,13 +69,13 @@ mencionan aplicaciones en procesamiento de voz.
     
 `Módulo 2.` **Tareas Clásicas de NLP**
 
-### Semana 4
-### Viernes · 4 hrs — Clasificación de texto
+##### Semana 4
+##### Viernes · 4 hrs — Clasificación de texto
     1. Análisis de sentimientos (positivo / negativo / neutro)
     2. Clasificación multi-clase de documentos
     3. Modelos: Naive Bayes, SVM, Logistic Regression
 
-### Sábado · 4 hrs — Extracción de información
+##### Sábado · 4 hrs — Extracción de información
     1. Named Entity Recognition (NER)
     2. Part-of-Speech Tagging (POS)
     3. Extracción de keywords y relaciones
@@ -83,7 +83,7 @@ mencionan aplicaciones en procesamiento de voz.
    
 `Módulo 3.` **Modelos de Lenguaje y Etiquetado de Secuencia.**
 
-### Semana 5    
+##### Semana 5    
 
 ### Viernes · 4 hrs — Arquitectura Transformer
     1. Mecanismo de atención (Self-Attention)
@@ -92,7 +92,7 @@ mencionan aplicaciones en procesamiento de voz.
     4. Fine-tuning para tareas específicas
     5. Librerías: `transformers` (Hugging Face), `torch`, `datasets`
 
-### Sábado · 4 hrs — Proyecto Final
+##### Sábado · 4 hrs — Proyecto Final
     1. Construcción de un pipeline NLP completo
     2. Despliegue con `FastAPI` o `Gradio`
     3. Evaluación final del modelo
