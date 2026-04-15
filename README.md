@@ -1,5 +1,5 @@
 ﻿# Procesamiento Natural del Lenguaje (NLP)
-### ALINNCO · Maestría en Inteligencia Artificial · ALINNCO
+### Maestría en Inteligencia Artificial · ALINNCO
 
 ---
 
