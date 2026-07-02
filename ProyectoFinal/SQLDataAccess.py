@@ -21,6 +21,7 @@ class SQLDataAccess:
         self.timeout = timeout
         self.backend = self._resolver_backend(backend)
         self._conn = None
+        self.consultas = {}   # SQL guardado por nombre (se llena desde el JSON)
 
     # ---------- Constructores alternativos ----------
     # ------------------------------------------------
@@ -34,15 +35,19 @@ class SQLDataAccess:
                    password=config['password'], database=config['database'])
 
     @classmethod
-    def desde_json(cls, ruta='db_config.json', clave='db_config'):
-        """Carga las credenciales desde un archivo JSON. """
+    def desde_json(cls, ruta='db_config.json', clave='db_config',
+                   clave_consultas='consultas'):
+        """Carga las credenciales (y las consultas guardadas) desde un JSON. """
         if not os.path.exists(ruta):
             raise FileNotFoundError(
                 f"No se encontró '{ruta}'.")
         with open(ruta, 'r', encoding='utf-8') as f:
             data = json.load(f)
         config = data[clave] if clave else data
-        return cls.desde_config(config)
+        obj = cls.desde_config(config)
+        if clave_consultas:
+            obj.consultas = data.get(clave_consultas, {})
+        return obj
 
     # ---------- Manejo de la conexión ----------
     # -------------------------------------------
@@ -122,6 +127,21 @@ class SQLDataAccess:
             # pandas avisa cuando no se usa SQLAlchemy; la lectura funciona igual.
             warnings.simplefilter('ignore', UserWarning)
             return pd.read_sql(sql, conn, params=params)
+
+    def sql_guardada(self, nombre):
+        """Devuelve el texto SQL de una consulta guardada en el JSON.  """
+        if nombre not in self.consultas:
+            disponibles = ", ".join(self.consultas) or "(ninguna)"
+            raise KeyError(
+                f"No existe la consulta '{nombre}'. Disponibles: {disponibles}")
+        sql = self.consultas[nombre]
+        if isinstance(sql, (list, tuple)):
+            sql = "\n".join(sql)
+        return sql
+
+    def consultar_sql(self, nombre, params=None):
+        """Ejecuta una consulta guardada por nombre y devuelve un DataFrame."""
+        return self.consultar(self.sql_guardada(nombre), params=params)
 
     def leer_tabla(self, tabla, columnas=None, where=None, params=None,
                    limite=None, esquema='dbo'):
